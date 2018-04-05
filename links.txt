@@ -1,3 +1,6 @@
 C++ Style Guides:
 https://habrahabr.ru/post/172091/ - Хабровская статья по кодстайлу С++
 https://google.github.io/styleguide/cppguide.html - кодстайл от Гугла на английском (всё равно стоит ознакомиться)
+
+Git Guides:
+https://git-scm.com/book/ru/v1/Основы-Git-Запись-изменений-в-репозиторий - Изменения в репозитории (в том числе и удаление файлов)
