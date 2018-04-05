@@ -1,0 +1,3 @@
+C++ Style Guides:
+https://habrahabr.ru/post/172091/ - Хабровская статья по кодстайлу С++
+https://google.github.io/styleguide/cppguide.html - кодстайл от Гугла на английском (всё равно стоит ознакомиться)
