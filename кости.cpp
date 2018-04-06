@@ -3,57 +3,42 @@
 #include <conio.h>
 #include <windows.h>
 using namespace std;
-void sum(int a, int b)
-{
-	int s1 = 0;
-	int s2 = 0;
-	for (int i = a; i <= a; i++)
-	{
-		s1 = s1 + i;
-	}
-	for (int i = b; i <= b; i++)
-	{
-		s2 = s2 + i;
-	}
-	cout << "Âàøà ñóììà çíà÷åíèé: " << s1 << endl;
-	cout << "Çíà÷åíèå êîìïüşòåğà: " << s2 << endl;
-}
 void whowin(int a, int b)
 {
 	if (a>b)
-		cout << "Âû âûèãğàëè!" << endl;
+		cout << "Ã‚Ã» Ã¢Ã»Ã¨Ã£Ã°Ã Ã«Ã¨!" << endl;
 	if(b>a)
-		cout << "Êîìïüşòåğ îäåğæàë ïîáåäó!" << endl;
+		cout << "ÃŠÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã° Ã®Ã¤Ã¥Ã°Ã¦Ã Ã« Ã¯Ã®Ã¡Ã¥Ã¤Ã³!" << endl;
 	if (a == b)
-		cout << "Íè÷üÿ!" << endl;
+		cout << "ÃÃ¨Ã·Ã¼Ã¿!" << endl;
 }
 void firstmove(int a, int b)
 {
-	cout << "Ó âàñ âûïàëî: " << a << endl;
-	cout << "Ó êîìïüşòåğà âûïàëî: " << b << endl;
+	cout << "Ã“ Ã¢Ã Ã± Ã¢Ã»Ã¯Ã Ã«Ã®: " << a << endl;
+	cout << "Ã“ ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°Ã  Ã¢Ã»Ã¯Ã Ã«Ã®: " << b << endl;
 	if (a>b)
 	{
-		cout << "Âû êèäàåòå ïåğâûì!" << endl;
+		cout << "Ã‚Ã» ÃªÃ¨Ã¤Ã Ã¥Ã²Ã¥ Ã¯Ã¥Ã°Ã¢Ã»Ã¬!" << endl;
 	}
 	if (a<b)
 	{
-		cout << "Ïåğâûé êèäàåò êîìïüşòåğ!" << endl;
+		cout << "ÃÃ¥Ã°Ã¢Ã»Ã© ÃªÃ¨Ã¤Ã Ã¥Ã² ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°!" << endl;
 	}
 	if (a == b)
 	{
 		b = rand() % 6 + 1;
 		a = rand() % 6 + 1;
-		cout << "Èäåò ïåğåáğîñ..." << endl;
+		cout << "ÃˆÃ¤Ã¥Ã² Ã¯Ã¥Ã°Ã¥Ã¡Ã°Ã®Ã±..." << endl;
 		Sleep(1500);
-		cout << "Ó âàñ âûïàëî: " << a << endl;
-		cout << "Ó êîìïüşòåğà âûïàëî: " << b << endl;
+		cout << "Ã“ Ã¢Ã Ã± Ã¢Ã»Ã¯Ã Ã«Ã®: " << a << endl;
+		cout << "Ã“ ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°Ã  Ã¢Ã»Ã¯Ã Ã«Ã®: " << b << endl;
 		if (a>b)
 		{
-			cout << "Âû êèäàåòå ïåğâûì!" << endl;
+			cout << "Ã‚Ã» ÃªÃ¨Ã¤Ã Ã¥Ã²Ã¥ Ã¯Ã¥Ã°Ã¢Ã»Ã¬!" << endl;
 		}
 		if (a<b)
 		{
-			cout << "Ïåğâûé êèäàåò êîìïüşòåğ!" << endl;
+			cout << "ÃÃ¥Ã°Ã¢Ã»Ã© ÃªÃ¨Ã¤Ã Ã¥Ã² ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°!" << endl;
 		}
 	}
 }
@@ -117,68 +102,72 @@ void cubiki(int a)
 	}
 	}
 }
-void drowtwice(int a, int b)
+void drowtwice(int a, int b, int &s1,int &s2)
 {
 	if (a>b) {
 		b = rand() % 6 + 1;
 		a = rand() % 6 + 1;
-		cout << "Âû êèäàåòå êóáèê..." << endl;
+		cout << "Ã‚Ã» ÃªÃ¨Ã¤Ã Ã¥Ã²Ã¥ ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 		Sleep(1500);
-		cout << "Ó âàñ âûïàëî: " << a << endl;
+		cout << "Ã“ Ã¢Ã Ã± Ã¢Ã»Ã¯Ã Ã«Ã®: " << a << endl;
 		cubiki(a);
 		Sleep(1500);
-		cout << "Êîìïüşòåğ êèäàåò êóáèê..." << endl;
+		cout << "ÃŠÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã° ÃªÃ¨Ã¤Ã Ã¥Ã² ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 		Sleep(1500);
-		cout << "Ó êîìïüşòåğà âûïàëî: " << b << endl;
+		cout << "Ã“ ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°Ã  Ã¢Ã»Ã¯Ã Ã«Ã®: " << b << endl;
 		cubiki(b);
+		s1=s1+a;
+		s2=s2+b;
 		whowin(a, b);
-		sum(a, b);
 	}
 	else if (a == b)
 	{
 		b = rand() % 6 + 1;
 		a = rand() % 6 + 1;
 		if (a>b) {
-			cout << "Âû êèäàåòå êóáèê..." << endl;
+			cout << "Ã‚Ã» ÃªÃ¨Ã¤Ã Ã¥Ã²Ã¥ ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 			Sleep(1500);
-			cout << "Ó âàñ âûïàëî: " << a << endl;
+			cout << "Ã“ Ã¢Ã Ã± Ã¢Ã»Ã¯Ã Ã«Ã®: " << a << endl;
 			cubiki(a);
 			Sleep(1500);
-			cout << "Êîìïüşòåğ êèäàåò êóáèê..." << endl;
+			cout << "ÃŠÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã° ÃªÃ¨Ã¤Ã Ã¥Ã² ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 			Sleep(1500);
-			cout << "Ó êîìïüşòåğà âûïàëî: " << b << endl;
+			cout << "Ã“ ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°Ã  Ã¢Ã»Ã¯Ã Ã«Ã®: " << b << endl;
 			cubiki(b);
+			s1=s1+a;
+			s2=s2+b;
 			whowin(a, b);
-			sum(a, b);
 		}
 		if (b>a) {
-			cout << "Êîìïüşòåğ êèäàåò êóáèê..." << endl;
+			cout << "ÃŠÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã° ÃªÃ¨Ã¤Ã Ã¥Ã² ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 			Sleep(1500);
-			cout << "Ó êîìïüşòåğà âûïàëî:" << b << endl;
+			cout << "Ã“ ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°Ã  Ã¢Ã»Ã¯Ã Ã«Ã®:" << b << endl;
 			cubiki(b);
 			Sleep(1500);
-			cout << "Âû êèäàåòå êóáèê..." << endl;
+			cout << "Ã‚Ã» ÃªÃ¨Ã¤Ã Ã¥Ã²Ã¥ ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 			Sleep(1500);
-			cout << "Ó âàñ âûïàëî:" << a << endl;
+			cout << "Ã“ Ã¢Ã Ã± Ã¢Ã»Ã¯Ã Ã«Ã®:" << a << endl;
 			cubiki(a);
+			s1=s1+b;
+			s2=s2+a;
 			whowin(a, b);
-			sum(a, b);
 		}
 	}
 	else {
 		b = rand() % 6 + 1;
 		a = rand() % 6 + 1;
-		cout << "Êîìïüşòåğ êèäàåò êóáèê..." << endl;
+		cout << "ÃŠÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã° ÃªÃ¨Ã¤Ã Ã¥Ã² ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 		Sleep(1500);
-		cout << "Ó êîìïüşòåğà âûïàëî:" << b << endl;
+		cout << "Ã“ ÃªÃ®Ã¬Ã¯Ã¼Ã¾Ã²Ã¥Ã°Ã  Ã¢Ã»Ã¯Ã Ã«Ã®:" << b << endl;
 		cubiki(b);
 		Sleep(1500);
-		cout << "Âû êèäàåòå êóáèê..." << endl;
+		cout << "Ã‚Ã» ÃªÃ¨Ã¤Ã Ã¥Ã²Ã¥ ÃªÃ³Ã¡Ã¨Ãª..." << endl;
 		Sleep(1500);
-		cout << "Ó âàñ âûïàëî:" << a << endl;
+		cout << "Ã“ Ã¢Ã Ã± Ã¢Ã»Ã¯Ã Ã«Ã®:" << a << endl;
 		cubiki(a);
+		s1=s1+b;
+		s2=s2+a;
 		whowin(a, b);
-		sum(a, b);
 	}
 }
 int main()
@@ -186,32 +175,35 @@ int main()
 	setlocale(LC_ALL, "rus");
 	int comp;
 	int igrok;
+	int sum1=0;
+	int sum2=0;
 
 	time_t t;
 	srand((unsigned)time(&t));
 	igrok = rand() % 6 + 1;
 	comp = rand() % 6 + 1;
-	cout << "Ïğîèçâîäÿòñÿ ïåğâûå áğîñêè äëÿ íà÷àëà èãğû..." << endl;
+	cout << "ÃÃ°Ã®Ã¨Ã§Ã¢Ã®Ã¤Ã¿Ã²Ã±Ã¿ Ã¯Ã¥Ã°Ã¢Ã»Ã¥ Ã¡Ã°Ã®Ã±ÃªÃ¨ Ã¤Ã«Ã¿ Ã­Ã Ã·Ã Ã«Ã  Ã¨Ã£Ã°Ã»..." << endl;
 	Sleep(2000);
 	firstmove(igrok, comp);
 	cout << endl;
-	cout << "//////////////Ïåğâûé ğàóíä!//////////////" << endl;
-	drowtwice(igrok, comp);
+	cout << "//////////////ÃÃ¥Ã°Ã¢Ã»Ã© Ã°Ã Ã³Ã­Ã¤!//////////////" << endl;
+	drowtwice(igrok, comp,sum1,sum2);
 	Sleep(1500);
 	cout << endl;
-	cout << "//////////////Âòîğîé ğàóíä!//////////////" << endl;
-	drowtwice(igrok, comp);
+	cout << "//////////////Ã‚Ã²Ã®Ã°Ã®Ã© Ã°Ã Ã³Ã­Ã¤!//////////////" << endl;
+	drowtwice(igrok, comp,sum1,sum2);
 	Sleep(1500);
 	cout << endl;
-	cout << "//////////////Òğåòèé ğàóíä!//////////////" << endl;
-	drowtwice(igrok, comp);
+	cout << "//////////////Ã’Ã°Ã¥Ã²Ã¨Ã© Ã°Ã Ã³Ã­Ã¤!//////////////" << endl;
+	drowtwice(igrok, comp,sum1,sum2);
 	Sleep(1500);
 	cout << endl;
-	cout << "//////////////×åòâåğòûé ğàóíä!//////////////" << endl;
-	drowtwice(igrok, comp);
+	cout << "//////////////Ã—Ã¥Ã²Ã¢Ã¥Ã°Ã²Ã»Ã© Ã°Ã Ã³Ã­Ã¤!//////////////" << endl;
+	drowtwice(igrok, comp,sum1,sum2);
 	Sleep(1500);
 	cout << endl;
-	cout << "Îáùèé ñ÷åò âàøèõ î÷êîâ: "<< endl;
+	cout << "ÃÃ¡Ã¹Ã¨Ã© Ã±Ã·Ã¥Ã² Ã¢Ã Ã¸Ã¨Ãµ Ã®Ã·ÃªÃ®Ã¢: "<<sum2<<endl;
+	cout << "ĞÑ‡ĞºĞ¸ ĞºĞ¾Ğ¼Ğ¿ÑŒÑÑ‚ĞµÑ€Ğ°: "<<sum1<<endl;
 
 	system("pause");
 	return 0;
