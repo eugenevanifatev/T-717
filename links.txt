@@ -4,3 +4,6 @@ https://google.github.io/styleguide/cppguide.html - кодстайл от Гугла на английс
 
 Git Guides:
 https://git-scm.com/book/ru/v1/Основы-Git-Запись-изменений-в-репозиторий - Изменения в репозитории (в том числе и удаление файлов)
+
+GoogleDoc:
+https://docs.google.com/spreadsheets/d/1pcnWysDOXBdUA12ZZofJOs9nT3AWSyBm67Wmb-mnST8/edit#gid=0 - ваша успеваемость
