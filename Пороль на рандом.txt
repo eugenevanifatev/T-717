@@ -1,0 +1,103 @@
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+#include <stdlib.h>
+#include <cstdio>
+using namespace std;
+
+void randomNumbersWithWords(char *massiv, int num);
+void randomWord(char *massiv,int num);
+void randomNumber(char *massiv,int num);
+
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	setlocale(0, "");
+	int numberOfDigits;
+	char* massiv = new char[256];
+	cout << "Введите размерность пароля: ";
+	cin >> numberOfDigits;
+	cout << endl;
+	cout << "Выберете тип шифрования: \n 1. Только цифры. \n 2. Только буквы. \n 3. Буквы с цифрами. \n";
+	int choose;
+	cin >> choose;
+	switch (choose)
+	{
+	case 1:
+		for (int i = 0; i < numberOfDigits; i++)
+		{
+			randomNumber(massiv, i);
+		}
+		for (int i = 0; i < numberOfDigits; i++)
+			cout << massiv[i] << " ";
+		cout << endl;
+		break;
+	case 2:
+		for (int i = 0; i < numberOfDigits; i++)
+		{
+			randomWord(massiv, i);
+		}
+		for (int i = 0; i < numberOfDigits; i++)
+			cout << massiv[i] << " ";
+		cout << endl;
+		break;
+	case 3:
+		for (int i = 0; i < numberOfDigits; i++)
+		{
+			randomNumbersWithWords(massiv, i);
+		}
+		for (int i = 0; i < numberOfDigits; i++)
+			cout << massiv[i] << " ";
+		cout << endl;
+		break;
+	default:
+		cout << "Печально, но вы не выбрали тип шифрования, так что до свидания./n";
+		getchar();
+		break;
+	}
+	system("pause");
+	return 0;
+}
+
+void randomNumbersWithWords(char *massiv,int num)
+{
+	
+	int number = 0;
+	int choose = 1 + rand() % 100;
+	if (choose >= 50)
+	{
+		randomWord(massiv, num);
+	}
+	else if (choose < 50)
+	{
+		randomNumber(massiv, num);
+	}
+}
+void randomWord(char *massiv,int num)
+{
+	int number = 0;
+
+
+	int choose = 1 + rand() % 100;
+	if (choose >= 50)
+	{
+		number = rand() % 15 + 65;
+		massiv[num] = (char)number;
+	}
+
+	else if (choose < 50)
+	{
+		number = rand() % 25 + 97;
+		massiv[num] = (char)number;
+	}
+
+	
+}
+void randomNumber(char *massiv,int num)
+{
+	int number = 0;
+
+	number =  rand() % 9+48;
+	massiv[num] = (char)number;
+}

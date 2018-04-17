@@ -1,0 +1,102 @@
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+
+using namespace std;
+
+struct studentlist
+{
+	int mark;
+	string sex;
+	string name;
+};
+
+int main()
+{
+	setlocale(0, "");
+	int a = 0;
+	int student_list[10];
+	for (int i = 0; i < 10; i++)
+	{
+		student_list[i] = 0;
+	}
+
+	studentlist student[8];
+	student[1].mark = 6;
+	student[1].name = "Alex";
+	student[1].sex = "male";
+
+	student[2].mark = 9;
+	student[2].name = "Max";
+	student[2].sex = "female";
+
+	student[3].mark = 3;
+	student[3].name = "Jannet";
+	student[3].sex = "female";
+
+	student[4].mark = 10;
+	student[4].name = "Olga";
+	student[4].sex = "female";
+
+	student[5].mark = 8;
+	student[5].name = "Katya";
+	student[5].sex = "female";
+
+	student[6].mark = 4;
+	student[6].name = "Sergey";
+	student[6].sex = "male";
+
+	student[7].mark = 5;
+	student[7].name = "Tanya";
+	student[7].sex = "female";
+
+	ofstream out("D:/1.txt");
+
+	for (int i = 0; i < 8; i++)
+	{
+		out.write((char*)&student[i], sizeof student[i]);
+	}
+	out.close();
+
+	ifstream in("D:/1.txt");
+
+	for (int i = 0; i < 8; i++)
+	{
+		in.read((char*)&student[i], sizeof student[i]);
+	}
+	in.close();
+
+
+	for (int i = 0; i < 8; i++)
+	{
+		if (student[i].mark > 7 && student[i].sex == "female")
+		{
+			a = a++;
+			student_list[a] = student[i].mark;
+		}
+	}
+
+	sort(&student_list[0], &student_list[10]);
+
+	cout << "All students" << endl;
+	for (int i = 0; i < 8; i++)
+	{
+		cout << student[i].name << endl;
+	}
+
+
+	cout << "\n" << "Student girls with high grades in decrease order" << endl;
+	for (int j = 10; j > 6; j--)
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			if (student_list[j] == student[i].mark)
+			{
+				cout << student[i].name << endl;
+			}
+		}
+	}
+
+	system("pause");
+}
