@@ -1,0 +1,100 @@
+#include <iostream>
+#include <ctime>
+#include <conio.h>
+#include <stdlib.h>
+#include <cstdio>
+using namespace std;
+void PasswordWhithWords(char *massiv, int num)
+{
+	int number = 0;
+
+
+	int choose = 1 + rand() % 100;
+	if (choose >= 50)
+	{
+		number = rand() % 15 + 65;
+		massiv[num] = (char)number;
+	}
+
+	else if (choose < 50)
+	{
+		number = rand() % 25 + 97;
+		massiv[num] = (char)number;
+	}
+
+
+}
+void PasswordWhitDigits(char *massiv, int num)
+{
+	int number = 0;
+
+	number = rand() % 9 + 48;
+	massiv[num] = (char)number;
+}
+void PasswordWhithWordsAndDigits(char *massiv, int num)
+{
+
+	int number = 0;
+	int choose = 1 + rand() % 100;
+	if (choose >= 50)
+	{
+		PasswordWhithWords(massiv, num);
+	}
+	else if (choose < 50)
+	{
+		PasswordWhitDigits(massiv, num);
+	}
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	setlocale(0, "");
+	int PasswordSize = 15;
+	char* PasswordArray = new char[256];
+	cout << "Choose the type of encryption \n 1. Digits \n 2. Words. \n 3. Words and digits. \n";
+	int choose;
+	cin >> choose;
+	switch (choose)
+	{
+	case 1:
+		for (int i = 0; i < PasswordSize; i++)
+		{
+			PasswordWhitDigits(PasswordArray, i);
+		}
+		for (int i = 0; i < PasswordSize; i++)
+		{
+			cout << PasswordArray[i] << " ";
+		}
+		cout << endl;
+		break;
+	case 2:
+		for (int i = 0; i < PasswordSize; i++)
+		{
+			PasswordWhithWords(PasswordArray, i);
+		}
+		for (int i = 0; i < PasswordSize; i++)
+		{
+			cout << PasswordArray[i] << " ";
+		}
+		cout << endl;
+		break;
+	case 3:
+		for (int i = 0; i < PasswordSize; i++)
+		{
+			PasswordWhithWordsAndDigits(PasswordArray, i);
+		}
+		for (int i = 0; i < PasswordSize; i++)
+		{
+			cout << PasswordArray[i] << " ";
+		}
+		cout << endl;
+		break;
+	default:
+		cout << "You must choose type of encryption!!! ./n";
+		break;
+	}
+	system("pause");
+	return 0;
+}
+
