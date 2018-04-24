@@ -1,0 +1,81 @@
+#include <iostream>
+#include <algorithm>
+#include <time.h>
+#include <stdlib.h>
+#include <fstream>
+
+using namespace std;
+
+class PassGen {
+
+public:
+    void displayMessage()
+    {
+        int dlinaparol;
+        int chisloparol;
+        char * filename = new char;
+
+        cout << "¬ведите длину парол€ дл€ генерации: ";
+        cin >> dlinaparol;
+        cout << "¬ведите количество паролей дл€ генерации: ";
+        cin >> chisloparol;
+        cout << "Ѕудет сгенерировано паролей: " <<chisloparol << "." << endl;
+        cout << endl;
+        cout << "¬ведите им€ файла дл€ записи: ";
+        cin >> filename;
+
+       ofstream outFile(filename);
+
+        for (int k = 0; k < chisloparol; k++) {
+            for (int i = 0; i < dlinaparol; ++i) {    
+                numOfChars(dlinaparol);
+                passGenerator(dlinaparol);
+                outFile << password [i];
+            }
+            outFile << endl;
+        }
+        outFile.close();
+
+        cout << "ѕароли успешно сгенерированы и записаны в файл " << filename << "" << endl;
+    }
+
+    void passGenerator(int dlinaparol)
+    {
+        password = new char [dlinaparol];
+
+        for (int i = 0; i < numOfNumbers; ++i) {
+            password [i] = char(rand() % 10 + 48);
+        }
+        for (int i = numOfNumbers; i < numOfNumbers + numOfBigChars; ++i) {
+            password [i] = char(rand() % 26 + 65);
+        }
+        for (int i = numOfNumbers + numOfBigChars; i < dlinaparol; ++i) {
+            password [i] = char(rand() % 26 + 97);
+        }
+         random_shuffle(password, password + dlinaparol);        
+    }
+
+    void numOfChars(int dlinaparol)
+    {
+        numOfSmallChars = rand() % dlinaparol;
+        int charRandEnd = dlinaparol - numOfSmallChars;
+        numOfBigChars = rand() % charRandEnd;
+        numOfNumbers = dlinaparol - numOfSmallChars - numOfBigChars;
+    }
+
+private:
+    int numOfSmallChars;
+    int numOfBigChars;
+    int numOfNumbers;
+    char * password;
+};
+
+int main()
+{
+	setlocale(LC_ALL,"RU");
+
+    srand(time(NULL));
+    PassGen * pass = new PassGen;
+    pass->displayMessage();
+    return 0;
+}
