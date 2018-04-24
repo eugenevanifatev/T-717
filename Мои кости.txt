@@ -1,0 +1,158 @@
+// C// ConsoleApplication30.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include<ctime>
+#include <Windows.h>
+
+using namespace std;
+
+bool calcFirstThrow()
+{
+	int step = rand() % 2;
+
+	if(step==1)
+	{ 
+		cout << "Первый ход: Настя" << endl;
+	}
+	else
+	{
+		cout << "Первый ход: Гена" << endl;
+	}
+
+	return step;
+}
+
+int rollDice(int dice_number)
+{
+	int result = 0;
+	dice_number = rand() % 6 + 1;
+	switch (dice_number) {
+	case 1:
+		cout << "@@@@@@@@@@@@@" << endl;
+		cout << "@           @" << endl;
+		cout << "@     #     @" << endl;
+		cout << "@           @" << endl;
+		cout << "@@@@@@@@@@@@@" << endl;
+		break;
+	case 2:
+		cout << "@@@@@@@@@@@@@" << endl;
+		cout << "@   #       @" << endl;
+		cout << "@           @" << endl;
+		cout << "@       #   @" << endl;
+		cout << "@@@@@@@@@@@@@" << endl;
+		break;
+	case 3:
+		cout << "@@@@@@@@@@@@@" << endl;
+		cout << "@   #       @" << endl;
+		cout << "@     #     @" << endl;
+		cout << "@       #   @" << endl;
+		cout << "@@@@@@@@@@@@@" << endl;
+		break;
+	case 4:
+		cout << "@@@@@@@@@@@@@" << endl;
+		cout << "@   #   #   @" << endl;
+		cout << "@           @" << endl;
+		cout << "@   #   #   @" << endl;
+		cout << "@@@@@@@@@@@@@" << endl;
+		break;
+	case 5:
+		cout << "@@@@@@@@@@@@@" << endl;
+		cout << "@   #   #   @" << endl;
+		cout << "@     #     @" << endl;
+		cout << "@   #   #   @" << endl;
+		cout << "@@@@@@@@@@@@@" << endl;
+		break;
+	case 6:
+		cout << "@@@@@@@@@@@@@" << endl;
+		cout << "@   #   #   @" << endl;
+		cout << "@   #   #   @" << endl;
+		cout << "@   #   #   @" << endl;
+		cout << "@@@@@@@@@@@@@" << endl;
+		break;
+	}
+	result = dice_number;
+	return result;
+}
+
+void main()
+{
+
+	setlocale(LC_ALL, "rus");
+	srand(time(NULL));
+
+	bool whoMoves = calcFirstThrow();
+	int count = 0;
+	int dice_number = 0;
+	int result_nasty = 0;
+	int result_gena = 0;
+	int current_result_nasty = 0;
+	int current_result_gena = 0;
+
+	
+
+
+
+	for (int i = 0; i <8; i++)
+	{
+		Sleep(2000);
+
+		if (whoMoves)
+		{			
+			cout << "бросок Насти" << endl;
+			current_result_nasty = rollDice(dice_number);
+			result_nasty += current_result_nasty;
+			count++;
+			whoMoves = !whoMoves;
+		}
+		else
+		{
+			cout << "бросок Гены" << endl;
+			current_result_gena = rollDice(dice_number);
+			result_gena += current_result_gena;
+			count++;
+			whoMoves = !whoMoves;
+		}
+
+		if (count>1)
+		{
+			if (current_result_nasty > current_result_gena)
+			{
+				cout << "Выйграла Настя" << endl;
+				count = 0;
+			}
+			else if (current_result_nasty ==current_result_gena)
+			{
+				cout << "Ничья" << endl;
+				count = 0;
+			}
+			else
+			{
+				cout << "Выйграл Гена" << endl;
+				count = 0;
+			}
+		}
+
+	}
+	cout << "Счет Насти:" << result_gena<< endl;
+	cout << "Счет Гены:" << result_nasty << endl;
+
+	if (result_nasty<result_gena)
+	{
+		cout << "Выйграла Настя" << endl;
+	}
+	else if (result_nasty == result_gena)
+	{
+		cout << "Ничья" << endl;
+	}
+	else if(result_nasty>result_gena)
+	{
+		cout << "Выйграл Гена" << endl;
+	}
+	
+	system("pause");
+}
+
+
+
