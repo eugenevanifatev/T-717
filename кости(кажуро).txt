@@ -1,0 +1,160 @@
+#include <iostream>
+#include <ctime>
+#include <Windows.h>
+
+using namespace std;
+
+bool ktopervey()
+{
+	int step = rand() % 2;
+
+	if (step == 1)
+	{
+		cout << "Первый ход: Игрок" << endl << endl;
+	}
+	else
+	{
+		cout << "Первый ход: Компьютер" << endl << endl;
+	}
+
+	return step;
+}
+
+int rollDice(int Number)
+{
+	int result = 0;
+	Number = rand() % 6 + 1;
+	switch (Number) {
+	case 1:
+		cout << "%%%%%%%%%%%%%" << endl;
+		cout << "%           %" << endl;
+		cout << "%     *     %" << endl;
+		cout << "%           %" << endl;
+		cout << "%%%%%%%%%%%%%" << endl;
+		break;
+	case 2:
+		cout << "%%%%%%%%%%%%%" << endl;
+		cout << "%   *       %" << endl;
+		cout << "%           %" << endl;
+		cout << "%       *   %" << endl;
+		cout << "%%%%%%%%%%%%%" << endl;
+		break;
+	case 3:
+		cout << "%%%%%%%%%%%%%" << endl;
+		cout << "%   *       %" << endl;
+		cout << "%     *     %" << endl;
+		cout << "%       *   %" << endl;
+		cout << "%%%%%%%%%%%%%" << endl;
+		break;
+	case 4:
+		cout << "%%%%%%%%%%%%%" << endl;
+		cout << "%   *   *   %" << endl;
+		cout << "%           %" << endl;
+		cout << "%   *   *   %" << endl;
+		cout << "%%%%%%%%%%%%%" << endl;
+		break;
+	case 5:
+		cout << "%%%%%%%%%%%%%" << endl;
+		cout << "%   *   *   %" << endl;
+		cout << "%     *     %" << endl;
+		cout << "%   *   *   %" << endl;
+		cout << "%%%%%%%%%%%%%" << endl;
+		break;
+	case 6:
+		cout << "%%%%%%%%%%%%%" << endl;
+		cout << "%   *   *   %" << endl;
+		cout << "%   *   *   %" << endl;
+		cout << "%   *   *   %" << endl;
+		cout << "%%%%%%%%%%%%%" << endl;
+		break;
+	}
+	result = Number;
+	return result;
+}
+
+void showCurrentResult(int &score, int EndResultPlayer, int EndResultComputer)
+{
+	if (score>1)
+	{
+		if (EndResultPlayer >EndResultComputer)
+		{
+			cout << "Выйграл игрок" << endl << endl;
+			score = 0;
+		}
+		else if (EndResultPlayer == EndResultComputer)
+		{
+			cout << "Ничья" << endl << endl;
+			score = 0;
+		}
+		else
+		{
+			cout << "Выйграл компьютер" << endl << endl;
+			score = 0;
+		}
+	}
+}
+
+
+int main()
+{
+
+	setlocale(LC_ALL, "rus");
+	srand(time(NULL));
+
+	bool whoMoves = ktopervey();
+	int score = 0;
+	int Number = 0;
+	int resultPlayer = 0;
+	int resultComputer = 0;
+	int EndResultPlayer = 0;
+	int EndResultComputer = 0;
+
+
+
+
+
+	for (int i = 0; i <8; i++)
+	{
+		Sleep(2000);
+
+		if (whoMoves)
+		{
+			cout << "бросок игрока" << endl;
+			EndResultPlayer = rollDice(Number);
+			resultPlayer += EndResultPlayer;
+			score++;
+			whoMoves = !whoMoves;
+		}
+		else
+		{
+			cout << "бросок компьютера" << endl;
+			EndResultComputer = rollDice(Number);
+			resultComputer += EndResultComputer;
+			score++;
+			whoMoves = !whoMoves;
+		}
+
+		showCurrentResult(score, EndResultPlayer, EndResultComputer);
+	}
+
+
+	cout << "Счет игрока: " << resultPlayer << endl;
+	cout << "Счет компьютера: " << resultComputer << endl;
+
+	if (resultPlayer>resultComputer)
+	{
+		cout << "Выйграл игрок" << endl;
+	}
+	else if (resultPlayer == resultComputer)
+	{
+		cout << "Ничья" << endl;
+	}
+	else
+	{
+		cout << "Выйграл компьютер" << endl;
+	}
+
+	system("pause");
+}
+
+
